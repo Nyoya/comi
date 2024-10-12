@@ -7,7 +7,7 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": ["public"]
+		"ignore": ["public", "pages"]
 	},
 	"formatter": {
 		"enabled": true,

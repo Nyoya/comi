@@ -1,7 +1,7 @@
 import SearchBar from '@/components/ui/SearchBar'
 import Create from '@/features/recipes/components/Create'
 import { Suspense } from 'react'
-import RecipesContainer from '@/features/recipes/components/RecipesContainer'
+import RecipesContainer from '@/features/recipes/components/Container'
 
 const page = async () => {
 	return (

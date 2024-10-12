@@ -1,10 +1,11 @@
 import "server-only";
+import type { Recipe } from "../types";
+import { createClient } from "@/lib/supabase";
 
-export const fetchRecipes = async () => {
-  try {
-    const res = await fetch('https://c33845ca-fa81-42ee-9d3f-e58b642421e0.mock.pstmn.io/api/v1/comi/recipe');
-    return res.json();
-  } catch (error) {
-    console.log(error);
-  }
+export const fetchRecipes = async (): Promise<Recipe[]> => {
+  const supabase = createClient()
+  const { data } = await supabase
+    .from('t_recipes')
+    .select('*, t_beans (name)')
+  return data as Recipe[]
 }
