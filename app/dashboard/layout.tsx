@@ -13,7 +13,7 @@ const layout = async ({
     <Header />
     <Breadcrumbs />
     <Sidebar />
-    <main>
+    <main className="px-2">
       {children}
     </main>
   </div>

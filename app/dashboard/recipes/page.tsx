@@ -5,7 +5,7 @@ import RecipesContainer from '@/features/recipes/components/Container'
 
 const page = async () => {
 	return (
-		<div className="px-2 grid grid-cols-[56px_1fr] gap-2">
+		<div className="grid grid-cols-[56px_1fr] gap-2">
 			<Create />
 			<SearchBar />
 			<div className='col-span-2'>
