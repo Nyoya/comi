@@ -10,14 +10,14 @@ const Dropdown = ({ id }: { id: string }) => {
         <Ellipsis />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-40">
-        <DropdownMenuItem>
+        <DropdownMenuItem className="cursor-pointer">
           <Link className="flex items-center gap-1.5" href={`/dashboard/recipes/${id}`}>
             <Edit />
             <span>Edit</span>
           </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
+        <DropdownMenuItem  className="cursor-pointer text-red-700">
           <form action="">
             <button type="submit" className="flex items-center gap-1.5">
               <Trash />

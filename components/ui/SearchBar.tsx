@@ -24,12 +24,12 @@ const SearchBar = () => {
           placeholder="Search..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="w-full pl-4 pr-10 py-2 rounded border-2 border-gray-300 focus:outline-none focus:ring focus:border-[#FFC38F] focus-visible:ring-0 focus-visible:ring-offset-0"
+          className="w-full pl-4 pr-10 py-2 rounded border-2 border-gray-300 focus:outline-none focus:ring focus:border-orange-base focus-visible:ring-0 focus-visible:ring-offset-0"
         />
         <Button
           type="submit"
           size="icon"
-          className="absolute right-1 top-1/2 -translate-y-1/2 rounded w-8 h-8 bg-[#E98025]"
+          className="absolute right-1 top-1/2 -translate-y-1/2 rounded w-8 h-8 bg-orange-base hover:bg-orange-base"
         >
           <Search className="h-4 w-4" />
           <span className="sr-only">Search</span>
