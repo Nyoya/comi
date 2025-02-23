@@ -1,3 +1,4 @@
-export const COLOR = '#333'
-export const MAIN_COLOR = '#EADDD3';
-export const SUB_COLOR = '#'
+export const BASE_COLOR = '#FFF';
+export const TEXT_COLOR = '#33362F'
+export const NEUTRAL_COLOR = "#FFF9F4"
+export const ACCENT_COLOR = '#D89323'
