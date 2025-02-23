@@ -1,4 +1,4 @@
-import { Button } from '@chakra-ui/react';
+import { Box, Button, Heading } from '@chakra-ui/react';
 import {
   DrawerBackdrop,
   DrawerBody,
@@ -10,6 +10,7 @@ import {
   DrawerTrigger,
 } from '@/components/ui/drawer';
 import Image from 'next/image';
+import { MAIN_COLOR } from '@/styles/theme';
 
 export default function AuthLayout({
   children,
@@ -18,8 +19,27 @@ export default function AuthLayout({
 }) {
   return (
     <>
-      <header className='w-full fixed top-0 py-1 px-3 flex justify-between items-center shadow bg-[#EADDD3]'>
-        <h1 className='font-bold text-lg'>Comi</h1>
+      <Box
+        as='header'
+        width='full'
+        position='fixed'
+        display='flex'
+        top='0'
+        paddingY='1'
+        paddingX='3'
+        justifyContent='space-between'
+        alignItems='center'
+        shadow='xs'
+        backgroundColor={MAIN_COLOR}
+        zIndex='10'
+      >
+        <Heading
+          as='h1'
+          fontWeight='bold'
+          fontSize='lg'
+        >
+          Comi
+        </Heading>
         <DrawerRoot>
           <DrawerBackdrop />
           <DrawerTrigger asChild>
@@ -27,7 +47,7 @@ export default function AuthLayout({
               <Image src={'/menu.svg'} alt='menu' width={20} height={20} />
             </Button>
           </DrawerTrigger>
-          <DrawerContent backgroundColor={'#EADDD3'}>
+          <DrawerContent backgroundColor={MAIN_COLOR}>
             <DrawerHeader>
               <DrawerTitle>menu</DrawerTitle>
             </DrawerHeader>
@@ -40,8 +60,20 @@ export default function AuthLayout({
             <DrawerCloseTrigger />
           </DrawerContent>
         </DrawerRoot>
-      </header>
-      <main className='p-2 pt-12'>{children}</main>
+      </Box>
+      <Box
+        as='main'
+        paddingTop='12'
+      >
+        <Box
+          paddingY='3'
+          paddingX='2'
+          display='grid'
+          gridTemplateColumns='1fr'
+        >
+          {children}
+        </Box>
+      </Box>
     </>
   );
 }
