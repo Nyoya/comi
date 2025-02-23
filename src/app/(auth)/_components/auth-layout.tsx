@@ -43,7 +43,7 @@ export default function AuthLayout({
         <DrawerRoot>
           <DrawerBackdrop />
           <DrawerTrigger asChild>
-            <Button variant="outline" size="md">
+            <Button minWidth='20px' >
               <Image src={'/menu.svg'} alt='menu' width={20} height={20} />
             </Button>
           </DrawerTrigger>
@@ -66,8 +66,7 @@ export default function AuthLayout({
         paddingTop='12'
       >
         <Box
-          paddingY='3'
-          paddingX='2'
+          padding='3'
           display='grid'
           gridTemplateColumns='1fr'
           gap='3'
