@@ -67,9 +67,6 @@ export default function AuthLayout({
       >
         <Box
           padding='3'
-          display='grid'
-          gridTemplateColumns='1fr'
-          gap='3'
         >
           {children}
         </Box>
