@@ -30,6 +30,7 @@ export default function AuthLayout({
         alignItems='center'
         borderBottomWidth='1px'
         zIndex='10'
+        backgroundColor="white"
       >
         <Heading
           as='h1'
