@@ -10,7 +10,6 @@ import {
   DrawerTrigger,
 } from '@/components/ui/drawer';
 import Image from 'next/image';
-import { BASE_COLOR } from '@/styles/theme';
 
 export default function AuthLayout({
   children,
@@ -29,7 +28,6 @@ export default function AuthLayout({
         paddingX='3'
         justifyContent='space-between'
         alignItems='center'
-        backgroundColor={BASE_COLOR}
         borderBottomWidth='1px'
         zIndex='10'
       >
@@ -47,7 +45,7 @@ export default function AuthLayout({
               <Image src={'/menu.svg'} alt='menu' width={20} height={20} />
             </Button>
           </DrawerTrigger>
-          <DrawerContent backgroundColor={BASE_COLOR}>
+          <DrawerContent>
             <DrawerHeader>
               <DrawerTitle>menu</DrawerTitle>
             </DrawerHeader>
