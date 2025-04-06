@@ -66,6 +66,11 @@ export default function AuthLayout({
       >
         <Box
           padding='3'
+          md={{ 
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
         >
           {children}
         </Box>
