@@ -6,21 +6,7 @@ import {
 } from "@chakra-ui/react"
 import { useState } from "react";
 
-interface Data {
-  id: string;
-  bean: string;
-  origin: string;
-  process: string;
-  level: string;
-  end_time: string;
-  created_at: string;
-}
-
-interface CustomTableProps {
-  items: Data[]
-}
-
-export default function CustomTable({ items }: CustomTableProps) {
+export default function CustomTable({ items }: any) {
   const [selection, setSelection] = useState<string[]>([])
 
   const hasSelection = selection.length > 0
@@ -53,11 +39,12 @@ export default function CustomTable({ items }: CustomTableProps) {
           <Checkbox.Control />
         </Checkbox.Root>
       </Table.Cell>
-      <Table.Cell>{item.bean}</Table.Cell>
-      <Table.Cell>{item.origin}</Table.Cell>
-      <Table.Cell>{item.process}</Table.Cell>
+      <Table.Cell>{item.t_beans.name}</Table.Cell>
+      <Table.Cell>{item.t_beans.origin}</Table.Cell>
+      <Table.Cell>{item.t_beans.process}</Table.Cell>
       <Table.Cell>{item.level}</Table.Cell>
-      <Table.Cell textAlign="center">{item.end_time}</Table.Cell>
+      <Table.Cell textAlign="center">{item.total_time}</Table.Cell>
+      <Table.Cell>{item.note}</Table.Cell>
       <Table.Cell textAlign="center">{item.created_at}</Table.Cell>
     </Table.Row>
   ))
@@ -94,6 +81,7 @@ export default function CustomTable({ items }: CustomTableProps) {
             <Table.ColumnHeader>Process</Table.ColumnHeader>
             <Table.ColumnHeader>Level</Table.ColumnHeader>
             <Table.ColumnHeader textAlign="center">End Time</Table.ColumnHeader>
+            <Table.ColumnHeader>Note</Table.ColumnHeader>
             <Table.ColumnHeader textAlign="center">Created At</Table.ColumnHeader>
           </Table.Row>
         </Table.Header>
