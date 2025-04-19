@@ -10,6 +10,8 @@ import {
   DrawerTrigger,
 } from '@/components/ui/drawer';
 import Image from 'next/image';
+import LogoutButton from '@/features/login/_components/logout-button';
+import { Toaster } from '@/components/ui/toaster';
 
 export default function AuthLayout({
   children,
@@ -51,10 +53,7 @@ export default function AuthLayout({
               <DrawerTitle>menu</DrawerTitle>
             </DrawerHeader>
             <DrawerBody>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
+              <LogoutButton />
             </DrawerBody>
             <DrawerCloseTrigger />
           </DrawerContent>
@@ -74,6 +73,7 @@ export default function AuthLayout({
         >
           {children}
         </Box>
+        <Toaster />
       </Box>
     </>
   );
