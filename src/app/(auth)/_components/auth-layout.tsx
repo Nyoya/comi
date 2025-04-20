@@ -50,7 +50,7 @@ export default function AuthLayout({
           </DrawerTrigger>
           <DrawerContent>
             <DrawerHeader>
-              <DrawerTitle>menu</DrawerTitle>
+              <DrawerTitle fontWeight="bold">Menu</DrawerTitle>
             </DrawerHeader>
             <DrawerBody>
               <LogoutButton />
