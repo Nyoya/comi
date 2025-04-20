@@ -9,7 +9,11 @@ export type State = {
   errors?: {
     email?: string[];
     password?: string[];
-  } 
+  };
+  input?: {
+    email?: string;
+    password: string;
+  }
 }
 
 const Credentials = z.object({
@@ -34,21 +38,36 @@ const Credentials = z.object({
 export async function login(state: State, formData: FormData) {
   const supabase = await createClient()
 
+  const inputEmail = formData.get('email') as string;
+  const inputPassword = formData.get('password') as string;
+
   const result = Credentials.safeParse({
-    email: formData.get('email') as string,
-    password: formData.get('password') as string
+    email: inputEmail,
+    password: inputPassword
   })
 
   if (!result.success) {
     return {
       message: '入力内容を確認してください。',
       errors: result.error.flatten().fieldErrors,
+      input: {
+        email: inputEmail,
+        password: inputPassword
+      }
     } as State;
   }
 
   const { error } = await supabase.auth.signInWithPassword(result.data);
 
-  if(error) return { message: 'ログインに失敗しました。' } as State;
+  if(error) {
+    return { 
+      message: 'ログインに失敗しました。',
+      input: {
+        email: result.data.email,
+        password: result.data.password
+      }
+    } as State;
+  }
   
   redirect('/roasts')
 }
@@ -56,21 +75,36 @@ export async function login(state: State, formData: FormData) {
 export async function signup(tate: State, formData: FormData) {
   const supabase = await createClient()
 
+  const inputEmail = formData.get('email') as string;
+  const inputPassword = formData.get('password') as string;
+
   const result = Credentials.safeParse({
-    email: formData.get('email') as string,
-    password: formData.get('password') as string
+    email: inputEmail,
+    password: inputPassword
   })
 
   if (!result.success) {
     return {
       message: '入力内容を確認してください。',
       errors: result.error.flatten().fieldErrors,
+      input: {
+        email: inputEmail,
+        password: inputPassword
+      }
     } as State;
   }
 
   const { error } = await supabase.auth.signUp(result.data)
 
-  if(error) return { message: 'アカウントの作成に失敗しました。' } as State;
+  if(error) {
+    return { 
+      message: 'アカウントの作成に失敗しました。',
+      input: {
+        email: result.data.email,
+        password: result.data.password
+      }
+    } as State;
+  }
 
   redirect('/login')
 }

@@ -20,7 +20,8 @@ export default function Login() {
   const [signupState, signupFormAction] = useActionState(signup, initialState);
 
   // login, sign upのエラーメッセージを適切に出すための処理
-  let state = loginState.message ? loginState : initialState;
+  let state = initialState;
+  state = loginState.message ? loginState : state;
   state = signupState.message ? signupState : state
 
   return (
@@ -51,7 +52,7 @@ export default function Login() {
           <Fieldset.Content>
             <Field.Root invalid={state.errors?.email ? true : false}>
               <Field.Label>Email</Field.Label>
-              <Input name="email" border="1px solid" borderColor={state.errors?.email && 'red.500'} />
+              <Input name="email" defaultValue={state.input?.email} border="1px solid" borderColor={state.errors?.email && 'red.500'} />
               {
                 state.errors?.email?.map((error, i) => (
                   <Fieldset.ErrorText key={i}>
@@ -63,7 +64,7 @@ export default function Login() {
 
             <Field.Root invalid={state.errors?.password ? true : false}>
               <Field.Label>Password</Field.Label>
-              <Input name="password" type="password" border="1px solid" borderColor={state.errors?.password && 'red.500'} />
+              <Input name="password" type="password" defaultValue={state.input?.password} border="1px solid" borderColor={state.errors?.password && 'red.500'} />
               {
                 state.errors?.password?.map((error, i) => (
                   <Fieldset.ErrorText key={i}>
